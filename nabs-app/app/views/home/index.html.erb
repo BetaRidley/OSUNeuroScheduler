@@ -1,0 +1,31 @@
+<h1 class="ui header">Welcome to NABS</h1>
+<h3 class="ui header">Neurosurgery Appointment Booking System</h3>
+
+<!--<div class="ui center card">
+  <div class="image">
+    <a class="header" href="https://wexnermedical.osu.edu/neurological-institute/departments-and-centers/departments/department-neurosurgery">
+      <img src=<%= asset_path 'OSU-WexMedCtr-4C-StackedK-CMYK.jpg' %>>
+    </a>
+  </div>
+  <div class="content">
+    <a class="header" href="https://wexnermedical.osu.edu/neurological-institute/departments-and-centers/departments/department-neurosurgery">Neurosurgery Department</a>
+    <div class="meta">
+      <div class="phone">
+        <i class="phone icon"></i>614-293-8714
+      </div>
+    <div class="description">
+      410 W. 10th Ave.
+    </br>
+      Columbus, OH 43210-1240
+    </div>
+  </div>
+</div>
+-->
+<%# To create first user, type the following in rails console:
+  Clinic.create(name: 'CLINIC Referring', role: 'referrer')
+  Clinic.create(name: 'Clinic Referred', role: 'referred')
+  User.create!(email: "staff@gmail.com", password: "password", password_confirmation: "password", role: "staff", confirmed_at: Time.now.utc, password_changed: true, clinic_id: 1)
+  User.create!(email: "referringdoctor@gmail.com", password: "password", password_confirmation: "password", role: "doctor", confirmed_at: Time.now.utc, password_changed: true, clinic_id: 1)
+  User.create!(email: "referreddoctor@gmail.com", password: "password", password_confirmation: "password", role: "doctor", confirmed_at: Time.now.utc, password_changed: true, clinic_id: 2)
+  User.create!(email: "admin@gmail.com", password: "password", password_confirmation: "password", role: "admin", confirmed_at: Time.now.utc, password_changed: true, clinic_id: 2)
+%>

@@ -1,0 +1,12 @@
+<a class="item <%= current_page?(doctors_path) ? "active" : nil %>" href= <%= doctors_path %>>
+  <i class="ui icon search large"></i>Doctors
+</a>
+<a class="item <%= current_page?(new_referral_path) ? "active" : nil %>" href= <%= new_referral_path %>>
+  <i class="ui icon plus large"></i>Create
+</a>
+<a class="item <%= current_page?(referrals_path) ? "active" : nil %>" href= <%= referrals_path %>>
+  <i class="ui icon edit large"></i>Pending
+</a>
+<a class="item <%= current_page?(user_path(current_user)) ? "active" : nil %>" href= <%= user_path(current_user) %>>
+  <i class="large user icon"></i>Account
+</a>

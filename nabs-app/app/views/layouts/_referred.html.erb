@@ -1,0 +1,8 @@
+<div class="item"></div>
+<div class="item"></div>
+<a class="item <%= current_page?(requests_path) ? "active" : nil %>" href= <%= requests_path %>>
+  <i class="calendar outline icon"></i>Requests
+</a>
+<a class="item <%= current_page?(user_path(current_user)) ? "active" : nil %>" href= <%= user_path(current_user) %>>
+  <i class="large user icon"></i>Account
+</a>

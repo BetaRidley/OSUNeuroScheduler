@@ -1,0 +1,130 @@
+<div class="ui grid container">
+  <div class="two wide column"></div>
+  <div class="twelve wide column">
+  <%= form_for(@referral, html: {class: "ui large form"}) do |f| %>
+    <h2 class="ui  dividing header"><i class="ui icon exclamation large"></i>Status</h2>
+    <div class="fields">
+      <div class="field">
+        <div class="ui checkbox">
+          <%= f.check_box :urgent %>
+          <label>Urgent?</label>
+        </div>
+      </div>
+      <div class="field">
+        <div class="ui checkbox">
+          <%= f.check_box :next_available %>
+          <label>Next Available Appt?</label>
+        </div>
+      </div>
+    </div>
+    <h2 class="ui  dividing header"><i class="ui icon calendar large"></i>Preferred Day</h2>
+    <div class="equal width fields">
+      <div class="field">
+        <div class="ui horizontal celled relaxed list">
+          <div class="item">
+            <div class="ui large checkbox">
+              <%= f.check_box :monday %>
+              <label>Monday</label>
+            </div>
+          </div>
+          <div class="item">
+            <div class="ui large checkbox">
+              <%= f.check_box :tuesday %>
+              <label>Tuesday</label>
+            </div>
+          </div>
+          <div class="item">
+            <div class="ui large checkbox">
+              <%= f.check_box :wednesday %>
+              <label>Wednesday</label>
+            </div>
+          </div>
+          <div class="item">
+            <div class="ui large checkbox">
+              <%= f.check_box :thursday %>
+              <label>Thursday</label>
+            </div>
+          </div>
+          <div class="item">
+            <div class="ui large checkbox">
+              <%= f.check_box :friday %>
+              <label>Friday</label>
+            </div>
+          </div>
+          <div class="item">
+            <div class="ui large checkbox">
+              <%= f.check_box :saturday %>
+              <label>Saturday</label>
+            </div>
+          </div>
+          <div class="item">
+            <div class="ui large checkbox">
+              <%= f.check_box :sunday %>
+              <label>Sunday</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="ui  dividing header"><i class="ui icon pencil large"></i>Diagnosis</h2>
+    <div class="equal width fields">
+      <div class="field">
+        <label>Specialty</label>
+        <div class="ui search selection fluid dropdown">
+          <%= f.hidden_field :specialization_id %>
+          <i class="dropdown icon"></i>
+          <div class="default text"></div>
+          <div class="menu">
+            <% @specialties.each do |s| %>
+            <div class="item" data-value="<%=s[1]%>" data-text="<%=s[0]%>"><%=s[0]%></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+<!--
+      <div class="field">
+        <label>Diagnostic Details</label>
+        <%-# f.text_area :description, placeholder:"Relevant diagnostic details...", rows:"4", cols:"50" %>
+      </div>
+-->
+    </div>
+    <h2 class="ui dividing header"><i class="ui icon doctor large"></i>Doctors</h2>
+    <div class="equal width fields">
+      <div class="field">
+        <label>Referring Physician</label>
+        <div class="ui search selection fluid dropdown">
+          <% if current_user.role != 'doctor' %>
+            <%= f.hidden_field :referring_doctor_id %>
+            <i class="dropdown icon"></i>
+            <div class="default text"></div>
+            <div class="menu">
+              <% @referring_doctors.each do |s| %>
+                <div class="item" data-value="<%=s[1]%>" data-text="<%=s[0]%>"><%=s[0]%></div>
+              <% end %>
+            </div>
+          <% else %>
+            <%= f.hidden_field :referring_doctor_id, value: current_user.id %>
+            <div class="default text"><%= current_user.full_name %></div>
+          <% end %>
+        </div>
+      </div>
+      <div class="field">
+        <label>Referred Physician</label>
+        <div class="ui search selection fluid dropdown">
+          <%= f.hidden_field :referred_doctor_id %>
+          <i class="dropdown icon"></i>
+          <div class="default text"></div>
+          <div class="menu">
+            <% @referred_doctors.each do |s| %>
+            <div class="item" data-value="<%=s[1]%>" data-text="<%=s[0]%>"><%=s[0]%></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= f.submit 'Save Referral', class: 'ui button' %>
+  <% end %>
+  </div>
+  <div class="two wide column"></div>
+</div>

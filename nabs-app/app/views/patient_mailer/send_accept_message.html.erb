@@ -1,0 +1,4 @@
+<p>Hello <%= @patient.first_name + ' ' + @patient.middle_name + ' ' + @patient.last_name %>!</p>
+
+<% @doctor = User.find(@referral.referred_doctor_id) %>
+<p>Your appointment with Dr. <%= @doctor.last_name %> has been accepted.</p>

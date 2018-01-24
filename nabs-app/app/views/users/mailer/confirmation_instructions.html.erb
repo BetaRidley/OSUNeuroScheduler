@@ -1,0 +1,9 @@
+<% pass = Devise.friendly_token.first(8) %>
+<% @resource.update_column(:encrypted_password, User.new(:password => pass).encrypted_password) %>
+<p>Welcome <%= @email %>!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+
+<p>Your password is <%= pass %></p>

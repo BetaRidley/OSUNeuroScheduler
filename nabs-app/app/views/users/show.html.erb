@@ -1,0 +1,46 @@
+<h2 class="ui  dividing header">Account</h2>
+<table class="ui large striped celled table">
+  <tbody>
+    <% if current_user.admin? %>
+    <tr>
+      <td class="center aligned">Role</td>
+      <td><%= @user.role %></td>
+    </tr>
+    <% elsif current_user.role == 'doctor' %>
+      <tr>
+        <td colspan="2" class="center aligned"><%= link_to('Add Users', new_user_path, class:'button ui medium blue')%></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td class="center aligned">First Name</td>
+      <td><%= @user.first_name %></td>
+    </tr>
+    <tr>
+      <td class="center aligned">Last Name</td>
+      <td><%= @user.last_name %></td>
+    </tr>
+    <tr>
+      <td class="center aligned">Middle Name</td>
+      <td><%= @user.middle_name %></td>
+    </tr>
+    <tr>
+      <td class="center aligned">Email</td>
+      <td><%= @user.email %></td>
+    </tr>
+    <tr>
+      <td class="center aligned">Phone #</td>
+      <td><%= @user.phone_number %></td>
+    </tr>
+    <tr>
+      <td class="center aligned">Fax #</td>
+      <td><%= @user.fax_number %></td>
+    </tr>
+    <tr>
+      <td class="center aligned">Clinic</td>
+      <td><%= @user.clinic.try(:name) %></td>
+    </tr>
+    <tr>
+      <td colspan="2" class="center aligned"><%= link_to('Edit', edit_user_path, class:'button ui big yellow')%></td>
+    </tr>
+  </tbody>
+</table>

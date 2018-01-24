@@ -1,0 +1,44 @@
+<h2 class="ui  dividing header">Clinic Information</h2>
+<div class="ui relaxed list">
+  <div class="item">
+    <div class="content">
+      <div class="header">Name</div>
+      <div class="description"><%= "#{@clinic.name}"%></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="content">
+      <div class="header">Phone #</div>
+      <div class="description"><%= @clinic.phone_number %></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="content">
+      <div class="header">Fax #</div>
+      <div class="description"><%= @clinic.fax_number %></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="content">
+      <div class="header">Email</div>
+      <div class="description"><%= mail_to @clinic.email, @clinic.email, subject: "NABS Office Notification" %></div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="content">
+      <div class="header">Address</div>
+      <div class="description">
+        <%= @clinic.address_line1 %>
+        </br>
+        <%= @clinic.address_line2 %>
+        </br>
+        <%= "#{@clinic.city} #{@clinic.state} #{@clinic.zip_code}"%>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="content">
+      <%= link_to('Edit', edit_user_path, class:'button ui')%>
+    </div>
+  </div>
+</div>

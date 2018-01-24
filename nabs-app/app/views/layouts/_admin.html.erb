@@ -1,0 +1,10 @@
+<div class="item"></div>
+<a class="item <%= current_page?(users_path) ? "active" : nil %>" href= <%= users_path %>>
+  <i class="large user icon"></i>Users
+</a>
+<a class="item <%= current_page?(clinics_path) ? "active" : nil %>" href= <%= clinics_path %>>
+  <i class="ui icon home large"></i>Clinics
+</a>
+<a class="item <%= current_page?(user_path(current_user)) ? "active" : nil %>" href= <%= user_path(current_user) %>>
+  <i class="large user icon"></i>Account
+</a>

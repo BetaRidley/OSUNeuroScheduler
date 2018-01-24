@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+  <%= link_to destroy_user_session_path, method: :delete, class: "item" do %>
+    <i class="sign out large icon"></i>Logout
+  <% end %>
+<% else %>
+  <%= link_to new_user_session_path, class: "item" do %>
+    <i class="sign in large icon"></i>Login
+  <% end %>
+<% end %>

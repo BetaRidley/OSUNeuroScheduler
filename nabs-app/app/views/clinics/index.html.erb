@@ -1,0 +1,32 @@
+<h2 class="ui  dividing header">Clinic List</h2>
+<%= link_to 'New Office', new_clinic_path, class: "ui button"  %>
+<table class="table ui striped tablet stackable celled">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Role</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Fax</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clinics.each do |c| %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><%= c.role %></td>
+        <td><%= c.name %></td>
+        <td><%= "#{c.address_line1} - #{c.address_line2} - #{c.city}, #{c.state} #{c.zip_code}" %></td>
+        <td><%= c.email %></td>
+        <td><%= c.phone_number %></td>
+        <td><%= c.fax_number %></td>
+        <td><%= link_to('Edit', edit_clinic_path(c), class:'button ui yellow')%></td>
+        <td><%= link_to('Delete', c, method: :delete, class: 'button ui red')  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
