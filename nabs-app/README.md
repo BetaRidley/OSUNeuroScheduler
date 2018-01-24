@@ -3,7 +3,10 @@
 ## Team
 
 ### Members
-[Team Materials](https://drive.google.com/open?id=0B6ddZznZSupMM19RbEp4TGNwT0E)
+[Team Materials AU17](https://drive.google.com/open?id=0B6ddZznZSupMM19RbEp4TGNwT0E)
+[Team Materials SP18](https://drive.google.com/open?id=1AZRpi3Pc6Q2DraqHKlJkvcFmP0j3AjfT)
+
+# Autumn 2017
 - Leah Musie, PM, Front End
 	- musie.1@osu.edu
 - Tavish Wille, Secondary PM, Backend
@@ -14,6 +17,16 @@
 	- lindner.54@osu.edu
 - Melissa Sjostrom, Sponsor Contact, Testing, Front End
 	- sjostrom.7@osu.edu
+
+# Spring 2018
+- Erin George
+	- george.730@osu.edu
+- Jeremy Clark
+	- clark.2711@osu.edu
+- KC Miller
+	- miller.7532@osu.edu
+- Ricky Renner
+	- renner.163@osu.edu
 
 ### Sponsor 
 - Doctor Patrick Youssef, Neurosurgeon @ OSU Wexner Medical Center
