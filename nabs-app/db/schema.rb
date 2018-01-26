@@ -56,10 +56,10 @@ ActiveRecord::Schema.define(version: 20171205234921) do
     t.date "date"
     t.bigint "created_by_id"
     t.bigint "patient_id"
+    t.bigint "referred_doctor_id"
     t.bigint "referring_doctor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "referred_doctor_id"
     t.datetime "sent_at"
     t.boolean "urgent", default: false
     t.boolean "next_available", default: false
@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 20171205234921) do
 
   add_foreign_key "referrals", "patients"
   add_foreign_key "referrals", "specializations"
+  add_foreign_key "referrals", "specializations", column: "referred_doctor_id"
   add_foreign_key "referrals", "users", column: "created_by_id"
   add_foreign_key "referrals", "users", column: "referring_doctor_id"
   add_foreign_key "specializes", "specializations", column: "specializations_id"

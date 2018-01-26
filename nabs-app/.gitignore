@@ -22,7 +22,7 @@
 
 .byebug_history
 
-/vendor/.generators
-/vendor/.rakeTasks
+.generators
+.rakeTasks
 
 /config/database.yml

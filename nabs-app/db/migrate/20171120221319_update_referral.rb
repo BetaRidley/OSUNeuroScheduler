@@ -11,7 +11,7 @@ class UpdateReferral < ActiveRecord::Migration[5.1]
     add_column :referrals, :saturday, :boolean, default: :false
     add_column :referrals, :sunday, :boolean, default: :false
 
-    rename_column :referrals, :seeking_id_id, :referred_doctor_id
+    rename_column :referrals, :seeking_id, :referred_doctor_id
     rename_column :referrals, :doctor_id, :referring_doctor_id
     add_reference :referrals, :specialization, index: :true, foreign_key: :true
   end

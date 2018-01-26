@@ -37,7 +37,7 @@ group :development, :test do
   gem 'pg'
   gem 'factory_bot_rails'
   gem 'faker'
-  #gem 'database_cleaner'
+  gem 'database_cleaner'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
@@ -57,12 +57,13 @@ gem 'hirb'
 gem 'validates_formatting_of'
 gem 'simple_form'
 gem 'jquery-ui-rails'
+gem 'sprockets', '3.6.3'
 
 # Semantic UI assets
 gem 'jquery-rails'
 gem 'less-rails-semantic_ui'
 gem 'autoprefixer-rails'
-#gem 'therubyracer'
+gem 'therubyracer'
 
 group :development do
   gem 'annotate'
