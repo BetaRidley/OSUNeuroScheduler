@@ -1,33 +1,37 @@
 <% flash.each do |key, msg| %>
-  <% if flash[:alert] %>
-  <div class="ui icon message red">
-    <i class="exclamation icon large"></i>
-    <div class="content">
-      <div class="header">
-        Alert
-      </div>
-      <%= flash[:alert] %>
+    
+    <% if flash[:alert] %>
+    <div class="ui icon message red">
+        <i class="exclamation icon large"></i>
+        <div class="content">
+            <div class="header">
+                Alert
+            </div>
+            <%= flash[:alert] %>
+        </div>
     </div>
-  </div>
-  <% elsif flash[:message]%>
-  <div class="ui icon message blue">
-    <i class="exclamation icon large"></i>
-    <div class="content">
-      <div class="header">
-        Message
-      </div>
-      <%= flash[:message] %>
+    
+    <% elsif flash[:message] %>
+    <div class="ui icon message blue">
+        <i class="exclamation icon large"></i>
+        <div class="content">
+            <div class="header">
+                Message
+            </div>
+            <%= flash[:message] %>
+        </div>
     </div>
-  </div>
-  <% elsif flash[:notice] %>
-  <div class="ui icon message green">
-    <i class="exclamation icon large"></i>
-    <div class="content">
-      <div class="header">
-        Notice
-      </div>
-      <%= flash[:notice] %>
+    
+    <% elsif flash[:notice] %>
+    <div class="ui icon message green">
+        <i class="exclamation icon large"></i>
+        <div class="content">
+            <div class="header">
+                Notice
+            </div>
+            <%= flash[:notice] %>
+        </div>
     </div>
-  </div>
-  <% end %>
+    
+    <% end %>
 <% end %>

@@ -1,75 +1,83 @@
 <h2 class="ui  dividing header">Create Clinic</h2>
-<%= form_for(@clinic, controller: :clinics, html: {class: 'ui huge form'}) do |f|%>
-  <h2 class="ui dividing header">Role</h2>
-  <div class="field">
-    <div class="ui search selection fluid dropdown">
-      <%= f.hidden_field :role %>
-      <i class="dropdown icon"></i>
-      <div class="default text"></div>
-      <div class="menu">
-        <% @roles.each do |s| %>
-        <div class="item" data-value="<%=s[1]%>" data-text="<%=s[0]%>"><%=s[0]%></div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="fields">
+<%= form_for(@clinic, controller: :clinics, html: { class: 'ui huge form' }) do |f| %>
+    
+    <h2 class="ui dividing header">Role</h2>
     <div class="field">
-      <label>Name</label>
-      <%= f.text_field :name, placeholder:"Name" %>
-    </div>
-  </div>
-
-  <h2 class="ui dividing header">Contact</h2>
-  <div class="equal width fields">
-    <div class="field">
-      <label>Email</label>
-      <%= f.email_field :email, placeholder:"example@gmail.com" %>
-    </div>
-    <div class="field">
-      <label>Phone #</label>
-      <%= f.phone_field :phone_number, placeholder:"(###)###-####" %>
-    </div>
-    <div class="field">
-      <label>Fax #</label>
-      <%= f.phone_field :fax_number, placeholder:"(###)###-####" %>
-    </div>
-  </div>
-
-  <h2 class="ui dividing header">Location</h2>
-  <div class="equal width fields">
-    <div class="field">
-      <label>Address Line 1</label>
-      <%= f.text_field :address_line1, placeholder:"Street Address, P.O. box, Company Name, c/o" %>
-    </div>
-    <div class="field">
-      <label>Address Line 2</label>
-      <%= f.text_field :address_line2, placeholder:"Apartment, Suite, Unit, Building, Floor, Etc." %>
-    </div>
-  </div>
-  <div class="equal width fields">
-    <div class="field">
-      <label>City</label>
-      <%= f.text_field :city %>
-    </div>
-     <div class="field">
-      <label>State</label>
-      <div class="ui search selection fluid dropdown">
-        <%= f.hidden_field :state %>
-        <i class="dropdown icon"></i>
-        <div class="default text"></div>
-        <div class="menu">
-          <% us_states.each do |s| %>
-          <div class="item" data-value="<%=s[1]%>" data-text="<%=s[0]%>"><%=s[0]%></div>
-          <% end %>
+        <div class="ui search selection fluid dropdown">
+            <%= f.hidden_field :role %>
+            <i class="dropdown icon"></i>
+            <div class="default text"></div>
+            <div class="menu">
+                <% @roles.each do |s| %>
+                <div class="item" data-value="<%= s[1] %>" data-text="<%= s[0] %>"><%= s[0] %></div>
+                <% end %>
+            </div>
         </div>
-      </div>
     </div>
-
-    <div class="field">
-      <label>Zip Code</label>
-      <%= f.text_field :zip_code %>
+    
+    <div class="fields">
+        <div class="field">
+            <label>Name</label>
+            <%= f.text_field :name, placeholder: "Name" %>
+        </div>
     </div>
-  </div>
-  <%= f.submit 'Save', class: "ui button big" %>
+    
+    <h2 class="ui dividing header">Contact</h2>
+    <div class="equal width fields">
+        <div class="field">
+            <label>Email</label>
+            <%= f.email_field :email, placeholder: "example@gmail.com" %>
+        </div>
+        
+        <div class="field">
+            <label>Phone #</label>
+            <%= f.phone_field :phone_number, placeholder: "(###)###-####" %>
+        </div>
+        
+        <div class="field">
+            <label>Fax #</label>
+            <%= f.phone_field :fax_number, placeholder: "(###)###-####" %>
+        </div>
+    </div>
+    
+    <h2 class="ui dividing header">Location</h2>
+    <div class="equal width fields">
+        <div class="field">
+            <label>Address Line 1</label>
+            <%= f.text_field :address_line1, placeholder: "Street Address, P.O. box, Company Name, c/o" %>
+        </div>
+        
+        <div class="field">
+            <label>Address Line 2</label>
+            <%= f.text_field :address_line2, placeholder: "Apartment, Suite, Unit, Building, Floor, Etc." %>
+        </div>
+    </div>
+    
+    <div class="equal width fields">
+        <div class="field">
+            <label>City</label>
+            <%= f.text_field :city %>
+        </div>
+        
+        <div class="field">
+            <label>State</label>
+            <div class="ui search selection fluid dropdown">
+                <%= f.hidden_field :state %>
+                <i class="dropdown icon"></i>
+                <div class="default text"></div>
+                <div class="menu">
+                    <% us_states.each do |s| %>
+                    <div class="item" data-value="<%= s[1] %>" data-text="<%= s[0] %>"><%= s[0] %></div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        
+        <div class="field">
+            <label>Zip Code</label>
+            <%= f.text_field :zip_code %>
+        </div>
+    </div>
+    
+    <%= f.submit 'Save', class: "ui button big" %>
 <% end %>
