@@ -1,17 +1,19 @@
 <div class="ui six item stackable borderless labeled icon menu">
-  <div class="ui container">
-    <a href="<%= current_user ? home_index_path : new_user_session_path  %>" class="fitted item">
-      <img class="ui medium image left" src=<%= asset_path 'OSU-WexMedCtr-4C-StackedK-CMYK.jpg'%> alt="OSU Medical Center logo">
-    </a>
-    <div class="right menu">
-      <% if current_user && current_user.role == 'admin' %>
-        <%= render 'layouts/admin' %>
-      <% elsif current_user && current_user.clinic.try(:referred?) %>
-        <%= render 'layouts/referred' %>
-      <% elsif current_user && current_user.clinic.try(:referrer?) %>
-        <%= render 'layouts/referring' %>
-      <% end %>
-      <%= render 'devise/menu/login_items' %>
+    <div class="ui container">
+        <a href="<%= current_user ? home_index_path : new_user_session_path %>" class="fitted item">
+            <img class="ui medium image left" src=<%= asset_path 'OSU-WexMedCtr-4C-StackedK-CMYK.jpg' %> alt="OSU Medical Center logo">
+        </a>
+        
+        <div class="right menu">
+            <% if current_user && current_user.role == 'admin' %>
+                <%= render 'layouts/admin' %>
+            <% elsif current_user && current_user.clinic.try(:referred?) %>
+                <%= render 'layouts/referred' %>
+            <% elsif current_user && current_user.clinic.try(:referrer?) %>
+                <%= render 'layouts/referring' %>
+            <% end %>
+            
+            <%= render 'devise/menu/login_items' %>
+        </div>
     </div>
-  </div>
 </div>

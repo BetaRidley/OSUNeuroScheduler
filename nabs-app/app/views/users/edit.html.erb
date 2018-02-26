@@ -1,11 +1,13 @@
 <h2 class="ui  dividing header">Edit Account</h2>
+
 <div class="ui grid container">
-  <%= render "users/form" %>
-  <% if current_user == @user %>
+    <%= render "users/form" %>
+    <% if current_user == @user %>
     <h2 class="ui  dividing header">Password</h2>
     <%= link_to 'Reset Password', edit_passwords_path, class: 'ui button red'%>
-  <% elsif current_user.admin? and not @user.nil?%>
+
+    <% elsif current_user.admin? and not @user.nil?%>
     <h2 class="ui  dividing header">Password</h2>
     <%= link_to 'Reset Password', user_reset_password_path(@user), class: 'ui button red'%>
-  <% end %>
+    <% end %>
 </div>
