@@ -26,3 +26,5 @@
 .rakeTasks
 
 /config/database.yml
+
+.idea/
