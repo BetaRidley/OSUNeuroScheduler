@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 # To create first user, type the following in rails console:
 # Clinic.create(name: 'CLINIC Referring', role: 'referrer')
 # Clinic.create(name: 'Clinic Referred', role: 'referred')
