@@ -53,7 +53,7 @@ class ClinicsController < ApplicationController
   #  end
   #end
 
-  # New versionof destroy. Not sure if the if not statement works
+  # New version of destroy. Not sure if the if not statement works
   def destroy
     @clinic = Clinic.find(params[:id])
     flash[:notice]="Deleted Clinic"
