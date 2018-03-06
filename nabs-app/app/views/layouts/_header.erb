@@ -1,52 +1,61 @@
 <div class="ui six item stackable borderless labeled icon menu">
-  <div class="ui container">
-    <a href="<%= current_user ? home_index_path : new_user_session_path  %>" class="fitted item">
-      <img class="ui medium image left" src=<%= asset_path 'OSU-WexMedCtr-4C-StackedK-CMYK.jpg'%> alt="OSU Medical Center logo">
-    </a>
-    <div class="right menu">
-    <% if current_user && current_user.role == 'staff' %>
-        <% if not current_user.clinic.nil? and Clinic.find(current_user.clinic_id).referrer? %>
-          <a class="item <%= current_page?(doctors_path) ? "active" : nil %>" href= <%= doctors_path %>>
-            <i class="ui icon search large"></i>Doctors
-          </a>
-        <% end %>
-        <a class="item <%= current_page?(new_referral_path) ? "active" : nil %>" href= <%= new_referral_path %>>
-          <i class="ui icon plus large"></i>Create
+    <div class="ui container">
+        
+        <a href="<%= current_user ? home_index_path : new_user_session_path %>" class="fitted item">
+            <img class="ui medium image left" src=<%= asset_path 'OSU-WexMedCtr-4C-StackedK-CMYK.jpg' %> alt="OSU Medical Center logo">
         </a>
-        <a class="item <%= current_page?(referrals_path) ? "active" : nil %>" href= <%= referrals_path %>>
-          <i class="ui icon edit large"></i>Pending
-        </a>
-        <a class="item <%= current_page?(user_path(current_user)) ? "active" : nil %>" href= <%= user_path(current_user) %>>
-          <i class="large user icon"></i>Account
-        </a>
-      <% elsif current_user && current_user.role == 'doctor' %>
-        <% if not current_user.clinic.nil? and Clinic.find(current_user.clinic_id).referrer? %>
-          <a class="item <%= current_page?(doctors_path) ? "active" : nil %>" href= <%= doctors_path %>>
-            <i class="ui icon search large"></i>Doctors
-          </a>
-        <% end %>
-        <a class="item <%= current_page?(new_referral_path) ? "active" : nil %>" href= <%= new_referral_path %>>
-          <i class="ui icon plus large"></i>Create
-        </a>
-        <a class="item <%= current_page?(referrals_path) ? "active" : nil %>" href= <%= referrals_path %>>
-          <i class="ui icon edit large"></i>Pending
-        </a>
-        <a class="item <%= current_page?(user_path(current_user)) ? "active" : nil %>" href= <%= user_path(current_user) %>>
-          <i class="large user icon"></i>Account
-        </a>
-      <% elsif current_user && current_user.role == 'admin' %>
-        <div class="item"></div>
-        <a class="item <%= current_page?(users_path) ? "active" : nil %>" href= <%= users_path %>>
-          <i class="large user icon"></i>Users
-        </a>
-        <a class="item <%= current_page?(clinics_path) ? "active" : nil %>" href= <%= clinics_path %>>
-          <i class="ui icon home large"></i>Clinics
-        </a>
-        <a class="item <%= current_page?(user_path(current_user)) ? "active" : nil %>" href= <%= user_path(current_user) %>>
-          <i class="large user icon"></i>Account
-        </a>
-      <% end %>
-      <%= render 'devise/menu/login_items' %>
+        
+        <div class="right menu">
+            <% if current_user && current_user.role == 'staff' %>
+                
+                <% if not current_user.clinic.nil? and Clinic.find(current_user.clinic_id).referrer? %>
+                <a class="item <%= current_page?(doctors_path) ? "active" : nil %>" href= <%= doctors_path %>>
+                    <i class="ui icon search large"></i>Doctors
+                </a>
+                <% end %>
+                
+                <a class="item <%= current_page?(new_referral_path) ? "active" : nil %>" href= <%= new_referral_path %>>
+                    <i class="ui icon plus large"></i>Create
+                </a>
+                <a class="item <%= current_page?(referrals_path) ? "active" : nil %>" href= <%= referrals_path %>>
+                    <i class="ui icon edit large"></i>Pending
+                </a>
+                <a class="item <%= current_page?(user_path(current_user)) ? "active" : nil %>" href= <%= user_path(current_user) %>>
+                    <i class="large user icon"></i>Account
+                </a>
+            
+            <% elsif current_user && current_user.role == 'doctor' %>
+                
+                <% if not current_user.clinic.nil? and Clinic.find(current_user.clinic_id).referrer? %>
+                <a class="item <%= current_page?(doctors_path) ? "active" : nil %>" href= <%= doctors_path %>>
+                    <i class="ui icon search large"></i>Doctors
+                </a>
+                <% end %>
+                
+                <a class="item <%= current_page?(new_referral_path) ? "active" : nil %>" href= <%= new_referral_path %>>
+                    <i class="ui icon plus large"></i>Create
+                </a>
+                <a class="item <%= current_page?(referrals_path) ? "active" : nil %>" href= <%= referrals_path %>>
+                    <i class="ui icon edit large"></i>Pending
+                </a>
+                <a class="item <%= current_page?(user_path(current_user)) ? "active" : nil %>" href= <%= user_path(current_user) %>>
+                    <i class="large user icon"></i>Account
+                </a>
+            
+            <% elsif current_user && current_user.role == 'admin' %>
+                <div class="item"></div>
+                <a class="item <%= current_page?(users_path) ? "active" : nil %>" href= <%= users_path %>>
+                    <i class="large user icon"></i>Users
+                </a>
+                <a class="item <%= current_page?(clinics_path) ? "active" : nil %>" href= <%= clinics_path %>>
+                    <i class="ui icon home large"></i>Clinics
+                </a>
+                <a class="item <%= current_page?(user_path(current_user)) ? "active" : nil %>" href= <%= user_path(current_user) %>>
+                    <i class="large user icon"></i>Account
+                </a>
+            <% end %>
+            
+            <%= render 'devise/menu/login_items' %>
+        </div>
     </div>
-  </div>
 </div>

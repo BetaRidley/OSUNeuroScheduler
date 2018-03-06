@@ -1,105 +1,119 @@
 <%= form_for @patient, url: send_referral_path(@patient.referral.id), html: {class: "ui huge form"} do |f| %>
-  <h2 class="ui  dividing header">Patient</h2>
-  <div class="equal width fields">
-    <div class="field">
-      <label>First Name</label>
-      <%= f.text_field "first_name", placeholder:"First Name" %>
-    </div>
-    <div class="field">
-      <label>Last Name</label>
-      <%= f.text_field "last_name", placeholder: "Last Name" %>
-    </div>
-    <div class="field">
-      <label>Middle Initial</label>
-      <%= f.text_field "middle_name", placeholder:"Middle Name" %>
-    </div>
-  </div>
-  <div class="equal width fields">
-     <div class="field">
-      <label>Sex</label>
-      <div class="ui search selection fluid dropdown">
-        <%= f.hidden_field :state %>
-        <i class="dropdown icon"></i>
-        <div class="default text"></div>
-        <div class="menu">
-          <% @sexes.each do |s| %>
-          <div class="item" data-value="<%=s[1]%>" data-text="<%=s[0]%>"><%=s[0]%></div>
-          <% end %>
+    <h2 class="ui  dividing header">Patient</h2>
+
+    <div class="equal width fields">
+        <div class="field">
+            <label>First Name</label>
+            <%= f.text_field "first_name", placeholder:"First Name" %>
         </div>
-      </div>
+
+        <div class="field">
+            <label>Last Name</label>
+            <%= f.text_field "last_name", placeholder: "Last Name" %>
+        </div>
+
+        <div class="field">
+            <label>Middle Initial</label>
+            <%= f.text_field "middle_name", placeholder:"Middle Name" %>
+        </div>
     </div>
 
-    <div class="field">
-      <label>DOB</label>
-      <%= f.text_field :birth_date %>
+    <div class="equal width fields">
+        <div class="field">
+            <label>Sex</label>
+            <div class="ui search selection fluid dropdown">
+                <%= f.hidden_field :state %>
+                <i class="dropdown icon"></i>
+                <div class="default text"></div>
+
+                <div class="menu">
+                    <% @sexes.each do |s| %>
+                    <div class="item" data-value="<%=s[1]%>" data-text="<%=s[0]%>"><%=s[0]%></div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>DOB</label>
+            <%= f.text_field :birth_date %>
+        </div>
+
+        <div class="field">
+            <label>SSN</label>
+            <%= f.text_field :ssn, placeholder:"XXX-XX-XXXX" %>
+        </div>
     </div>
 
-    <div class="field">
-      <label>SSN</label>
-      <%= f.text_field :ssn, placeholder:"XXX-XX-XXXX" %>
-    </div>
-  </div>
-  <h2 class="ui  dividing header">Insurance</h2>
-  <div class="equal width fields">
-    <div class="field">
-      <label>Insurance</label>
-      <%= f.text_field :insurance %>
-    </div>
-    <div class="field">
-      <label>Group/Plan #</label>
-      <%= f.text_field :plan_group_no %>
-    </div>
-  </div>
-  <h2 class="ui  dividing header">Location</h2>
+    <h2 class="ui  dividing header">Insurance</h2>
+    <div class="equal width fields">
+        <div class="field">
+            <label>Insurance</label>
+            <%= f.text_field :insurance %>
+        </div>
 
-  <div class="equal width fields">
-    <div class="field">
-      <label>Address Line 1</label>
-      <%= f.text_field :address_line1, placeholder:"Street Address, P.O. box, Company Name, c/o" %>
+        <div class="field">
+            <label>Group/Plan #</label>
+            <%= f.text_field :plan_group_no %>
+        </div>
     </div>
-    <div class="field">
-      <label>Address Line 2</label>
-      <%= f.text_field :address_line2, placeholder:"Apartment, Suite, Unit, Building, Floor, Etc." %>
+
+    <h2 class="ui  dividing header">Location</h2>
+    <div class="equal width fields">
+        <div class="field">
+            <label>Address Line 1</label>
+            <%= f.text_field :address_line1, placeholder:"Street Address, P.O. box, Company Name, c/o" %>
+        </div>
+
+        <div class="field">
+            <label>Address Line 2</label>
+            <%= f.text_field :address_line2, placeholder:"Apartment, Suite, Unit, Building, Floor, Etc." %>
+        </div>
     </div>
-  </div>
-  <div class="equal width fields">
-    <div class="field">
-      <label>City</label>
-      <%= f.text_field :city %>
-    </div>
-    <div class="field">
-      <label>State</label>
-       <div class="ui search selection fluid dropdown">
-         <%= f.hidden_field :state %>
-         <i class="dropdown icon"></i>
-         <div class="default text"></div>
-         <div class="menu">
-           <% us_states.each do |s| %>
-           <div class="item" data-value="<%=s[1]%>" data-text="<%=s[0]%>"><%=s[0]%></div>
-           <% end %>
+
+    <div class="equal width fields">
+        <div class="field">
+            <label>City</label>
+            <%= f.text_field :city %>
+        </div>
+
+        <div class="field">
+            <label>State</label>
+            <div class="ui search selection fluid dropdown">
+                <%= f.hidden_field :state %>
+                <i class="dropdown icon"></i>
+                <div class="default text"></div>
+                <div class="menu">
+                    <% us_states.each do |s| %>
+                    <div class="item" data-value="<%=s[1]%>" data-text="<%=s[0]%>"><%=s[0]%></div>
+                    <% end %>
+                </div>
+            </div>
          </div>
-       </div>
-     </div>
-    <div class="field">
-      <label>Zip Code</label>
-      <%= f.text_field :zip_code %>
-    </div>
-  </div>
-    <h2 class="ui  dividing header">Contact</h2>
-  <div class="equal width fields">
-    <div class="field">
-      <label>Email</label>
-      <%= f.email_field :email, placeholder:"email@sample.com" %>
-    </div>
-    <div class="field">
-      <label>Phone #</label>
-      <%= f.phone_field :phone_number, placeholder:"(###)###-####" %>
-    </div>
-    <div class="field">
-      <label>Fax #</label>
-      <%= f.phone_field :fax_number, placeholder:"(###)###-####" %>
-    </div>
-  </div>
 
-  <%= f.submit 'Send Referral', class:"ui button big" %>
+        <div class="field">
+            <label>Zip Code</label>
+            <%= f.text_field :zip_code %>
+        </div>
+    </div>
+
+    <h2 class="ui  dividing header">Contact</h2>
+    <div class="equal width fields">
+        <div class="field">
+            <label>Email</label>
+            <%= f.email_field :email, placeholder:"email@sample.com" %>
+        </div>
+
+        <div class="field">
+            <label>Phone #</label>
+            <%= f.phone_field :phone_number, placeholder:"(###)###-####" %>
+        </div>
+
+        <div class="field">
+            <label>Fax #</label>
+            <%= f.phone_field :fax_number, placeholder:"(###)###-####" %>
+        </div>
+    </div>
+
+    <%= f.submit 'Send Referral', class:"ui button big" %>
 <% end %>

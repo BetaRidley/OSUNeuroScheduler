@@ -1,34 +1,37 @@
 <h2 class="ui  dividing header">Contact</h2>
 <%= link_to 'New User', new_user_path, class: "ui button"  %>
+
 <table class="table ui striped tablet stackable celled">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Clinic</th>
-      <th>Name</th>
-      <th>Role</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Fax</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-        <td><%= user.clinic.try(:name)%></td>
-        <td><%= user.full_name %></td>
-        <td><%= user.role.capitalize %></td>
-        <td><%= user.email %></td>
-        <td><%= user.phone_number %></td>
-        <td><%= user.fax_number %></td>
-        <td><%= link_to('Edit', edit_user_path(user), class:'button ui yellow')%></td>
-        <% unless current_user == user %>
-          <td><%= link_to('Delete', user, method: :delete, data: { confirm: "Are you sure?" }, class: 'button ui red')  %></td>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Clinic</th>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Fax</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        <% @users.each do |user| %>
+        <tr>
+            <td><%= user.id %></td>
+            <td><%= user.clinic.try(:name)%></td>
+            <td><%= user.full_name %></td>
+            <td><%= user.role.capitalize %></td>
+            <td><%= user.email %></td>
+            <td><%= user.phone_number %></td>
+            <td><%= user.fax_number %></td>
+            <td><%= link_to('Edit', edit_user_path(user), class:'button ui yellow')%></td>
+            
+            <% unless current_user == user %>
+            <td><%= link_to('Delete', user, method: :delete, data: { confirm: "Are you sure?" }, class: 'button ui red')  %></td>
+            <% end %>
+        </tr>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
+    </tbody>
 </table>
