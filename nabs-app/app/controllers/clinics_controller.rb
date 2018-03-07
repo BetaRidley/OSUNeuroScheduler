@@ -41,19 +41,8 @@ class ClinicsController < ApplicationController
     end
   end
 
-  # Original destroy. No Record Found error everytime
-  #def destroy
-  #  @clinic = Clinic.find(params[:id])
-  #  if @clinic.destroy
-  #    flash[:notice]= "Deleted Clinic"
-  #    redirect_to clinics_path
-  #  else
-  #    flash[:alert] = @clinic.errors.full_messages
-  #  redirect_to clinics_path
-  #  end
-  #end
 
-  # New version of destroy. Not sure if the if not statement works
+  # New version of destroy
   def destroy
     @clinic = Clinic.find(params[:id])
     flash[:notice]="Deleted Clinic"
