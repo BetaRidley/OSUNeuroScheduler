@@ -41,15 +41,20 @@ class ClinicsController < ApplicationController
     end
   end
 
+
+  # New version of destroy
   def destroy
     @clinic = Clinic.find(params[:id])
-    if @clinic.destroy
-      flash[:notice]= "Deleted Clinic #{@clinic.name}"
-      redirect_to clinics_path
-    else
-      flash[:alert] = @clinic.errors.full_messages
-      redirect_to clinics_path
+    flash[:notice]="Deleted Clinic"
+    @resultDel = @clinic.destroy
+
+    # if destroy doesn't work, throw the error message
+    if not @resultDel
+      flash[:alert]=@clinic.errors.full_messages
     end
+
+    # always redirect back to clinics page
+    redirect_to clinics_path
   end
 
   private
