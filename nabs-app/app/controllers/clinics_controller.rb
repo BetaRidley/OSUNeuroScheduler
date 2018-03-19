@@ -63,6 +63,7 @@ class ClinicsController < ApplicationController
     .permit(
       :role,
       :name,
+      :email,
       :phone_number, :fax_number,
       :address_line1, :address_line2,
       :city, :state, :zip_code
