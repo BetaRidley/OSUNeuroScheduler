@@ -5,8 +5,8 @@
     <thead>
         <tr>
             <th>ID</th>
-            <th>Clinic</th>
             <th>Name</th>
+            <th>Clinic</th>
             <th>Role</th>
             <th>Email</th>
             <th>Phone</th>
@@ -20,8 +20,8 @@
         <% @users.each do |user| %>
         <tr>
             <td><%= user.id %></td>
-            <td><%= user.clinic.try(:name)%></td>
             <td><%= user.full_name %></td>
+            <td><%= user.clinic.try(:name)%></td>
             <td><%= user.role.capitalize %></td>
             <td><%= user.email %></td>
             <td><%= user.phone_number %></td>
