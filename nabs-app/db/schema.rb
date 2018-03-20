@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205234921) do
+ActiveRecord::Schema.define(version: 20180319232709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 20171205234921) do
     t.string "zip_code"
     t.string "email"
     t.integer "role"
+  end
+
+  create_table "conditions", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "specialization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["specialization_id"], name: "index_conditions_on_specialization_id"
   end
 
   create_table "patients", force: :cascade do |t|
@@ -136,6 +144,7 @@ ActiveRecord::Schema.define(version: 20171205234921) do
     t.index ["specialization_id"], name: "index_users_on_specialization_id"
   end
 
+  add_foreign_key "conditions", "specializations"
   add_foreign_key "referrals", "patients"
   add_foreign_key "referrals", "specializations"
   add_foreign_key "referrals", "specializations", column: "referred_doctor_id"
