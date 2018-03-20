@@ -25,6 +25,7 @@
 .generators
 .rakeTasks
 
-/config/database.yml
 
 .idea/
+config/database.yml
+db/seeds.rb
