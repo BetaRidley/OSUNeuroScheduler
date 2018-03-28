@@ -66,6 +66,21 @@
         </div>
     </div>
     <% end %>
+    <% if current_user.admin? || current_user.role == 'doctor'%>
+      <h2 class="ui dividing header">Specialization</h2>
+      <div class="field">
+        <div class="ui search selection fluid dropdown">
+          <%= f.hidden_field :specialization_id %>
+          <i class="dropdown icon"></i>
+          <div class="default text"></div>
+          <div class="menu">
+            <% @specs.each do |s| %>
+              <div class="item" data-value="<%=s[0]%>" data-text="<%=s[1]%>"><%=s[1]%></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
 
     <button class="ui button big" type="submit">Save</button>
     <% end %>

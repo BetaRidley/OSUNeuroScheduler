@@ -43,6 +43,12 @@
         <td class="center aligned">Clinic</td>
         <td><%= @user.clinic.try(:name) %></td>
     </tr>
+    <% if current_user.role == 'doctor' %>
+    <tr>
+      <td class="center aligned">Specialization</td>
+      <td><%= @user.specialization.try(:title) %></td>
+    </tr>
+      <% end %>
     <tr>
         <td colspan="2" class="center aligned"><%= link_to('Edit', edit_user_path, class:'button ui big yellow')%></td>
     </tr>
