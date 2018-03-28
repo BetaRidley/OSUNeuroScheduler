@@ -3,65 +3,67 @@
 <div class="twelve wide column">
 
     <%= form_for @user, html: {class: 'ui huge form'} do |f|%>
-    <% if current_user.admin? || current_user.role == 'doctor' %>
-    <h2 class="ui dividing header">Role</h2>
-    <div class="field">
-        <div class="ui search selection fluid dropdown">
-            <%= f.hidden_field :role %>
-            <i class="dropdown icon"></i>
-            <div class="default text"></div>
-            <div class="menu">
-                <% @roles.each do |s| %>
-                <div class="item" data-value="<%=s[1]%>" data-text="<%=s[0]%>"><%=s[0]%></div>
-                <% end %>
+
+        <h2 class="ui dividing header">Role</h2>
+        <div class="field">
+            <div class="ui search selection fluid dropdown">
+                <%= f.hidden_field :role %>
+                <i class="dropdown icon"></i>
+                <div class="default text"></div>
+                <div class="menu">
+                    <% @roles.each do |s| %>
+                        <% if s != 'admin' %>
+                        <div class="item" data-value="<%=s[1]%>" data-text="<%=s[0]%>"><%=s[0]%></div>
+                        <% end %>
+                    <% end %>
+                </div>
             </div>
         </div>
-    </div>
-    <% end %>
 
-    <h2 class="ui dividing header">Name</h2>
-    <div class="equal width fields">
-        <div class="field">
-            <label>First Name</label>
-            <%= f.text_field :first_name %>
+        <h2 class="ui dividing header">Name</h2>
+        <div class="equal width fields">
+            <div class="field">
+                <label>First Name</label>
+                <%= f.text_field :first_name %>
+            </div>
+            <div class="field">
+                <label>Last Name</label>
+                <%= f.text_field :last_name %>
+            </div>
+            <div class="field">
+                <label>Middle Name</label>
+                <%= f.text_field :middle_name %>
+            </div>
         </div>
-        <div class="field">
-            <label>Last Name</label>
-            <%= f.text_field :last_name %>
-        </div>
-        <div class="field">
-            <label>Middle Name</label>
-            <%= f.text_field :middle_name %>
-        </div>
-    </div>
 
-    <h2 class="ui dividing header">Contact</h2>
-    <div class="equal width fields">
-        <div class="field">
-            <label>Email</label>
-            <%= f.email_field :email, placeholder:"example@gmail.com" %>
+        <h2 class="ui dividing header">Contact</h2>
+        <div class="equal width fields">
+            <div class="field">
+                <label>Email</label>
+                <%= f.email_field :email, placeholder:"example@gmail.com" %>
+            </div>
+            <div class="field">
+                <label>Phone #</label>
+                <%= f.phone_field :phone_number, placeholder:"(###)###-####" %>
+            </div>
+            <div class="field">
+                <label>Fax #</label>
+                <%= f.phone_field :fax_number, placeholder:"(###)###-####" %>
+            </div>
         </div>
-        <div class="field">
-            <label>Phone #</label>
-            <%= f.phone_field :phone_number, placeholder:"(###)###-####" %>
-        </div>
-        <div class="field">
-            <label>Fax #</label>
-            <%= f.phone_field :fax_number, placeholder:"(###)###-####" %>
-        </div>
-    </div>
 
-    <% if current_user.admin? || current_user.role == 'doctor'%>
-    <h2 class="ui dividing header">Clinic</h2>
-    <div class="field">
-        <div class="ui search selection fluid dropdown">
-            <%= f.hidden_field :clinic_id %>
-            <i class="dropdown icon"></i>
-            <div class="default text"></div>
-            <div class="menu">
-                <% @clinics.each do |s| %>
-                <div class="item" data-value="<%=s[1]%>" data-text="<%=s[0]%>"><%=s[0]%></div>
-                <% end %>
+        <% if current_user.role != 'admin' || @user.role != 'admin'%>
+        <h2 class="ui dividing header">Clinic</h2>
+        <div class="field">
+            <div class="ui search selection fluid dropdown">
+                <%= f.hidden_field :clinic_id %>
+                <i class="dropdown icon"></i>
+                <div class="default text"></div>
+                <div class="menu">
+                    <% @clinics.each do |s| %>
+                    <div class="item" data-value="<%=s[1]%>" data-text="<%=s[0]%>"><%=s[0]%></div>
+                    <% end %>
+                </div>
             </div>
         </div>
     </div>
