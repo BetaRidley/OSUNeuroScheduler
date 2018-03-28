@@ -16,7 +16,7 @@
       font-size: 18px;
     }
 
-    h1 {
+    a {
       text-decoration: none;
       font-size: 22px;
       color: black;
@@ -26,18 +26,18 @@
 
 <body>
 
-<div class="ui_home_card <%= current_page?(doctors_path) ? "active" : nil %>" href= <%= doctors_path %>>
-  <h1>Doctors</h1>
+<div class="ui_home_card" >
+  <a href=<%= doctors_path %>>Doctors</a>
   <p class="title">View/Search for doctors</p>
 </div>
 
-<div class="ui_home_card <%= current_page?(new_referral_path) ? "active" : nil %>" href= <%= new_referral_path %>>
-  <h1>Create</h1>
+<div class="ui_home_card">
+  <a href=<%= new_referral_path %>>Create</a>
   <p class="title">Create new referral</p>
 </div>
 
-<div class="ui_home_card <%= current_page?(referrals_path) ? "active" : nil %>" href= <%= referrals_path %>>
-  <h1>Pending</h1>
+<div class="ui_home_card">
+  <a href =<%= referrals_path %>>Pending</a>
   <p class="title">View pending referrals</p>
 </div>
 

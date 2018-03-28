@@ -2,7 +2,8 @@
 <head>
   <style>
     .ui_center_card{
-      margin:auto
+      margin:auto;
+      margin-top: 50px;
     }
     .ui_home_card {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -18,7 +19,7 @@
       font-size: 18px;
     }
 
-    h1 {
+    a {
       text-decoration: none;
       font-size: 22px;
       color: black;
@@ -41,8 +42,8 @@
 
 </div>
 
-<div class="ui_home_card <%= current_page?(user_path(current_user)) ? "active" : nil %>" href= <%= user_path(current_user) %>>
-  <h1>Account</h1>
+<div class="ui_home_card">
+  <a href=<%= user_path(current_user) %>>Account</a>
   <p class="title">View/manage your account information</p>
 </div>
 
