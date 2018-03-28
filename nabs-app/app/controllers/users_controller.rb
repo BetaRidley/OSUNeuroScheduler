@@ -15,9 +15,11 @@ class UsersController < ApplicationController
       @clinics =
         Clinic.all
         .map{|c| ["#{c.name} - #{c.address_line1}", c.id]}
+      @specs = Specialization.all.map{|s| [s.id, s.title]}
     else
       @roles = [['Doctor','doctor'],['Staff','staff']]
       @clinics = [["#{current_user.clinic.name} - #{current_user.clinic.address_line1}", current_user.clinic_id]]
+      @specs = Specialization.all.map{|s| [s.id, s.title]}
     end
   	@user = User.new
   end
@@ -27,6 +29,8 @@ class UsersController < ApplicationController
     @clinics =
       Clinic.all
       .map{|c| ["#{c.name} - #{c.address_line1}", c.id]}
+    @specs =
+        Specialization.all.map{|s| [s.id, s.title]}
     if @user.save
       User.invite!(email: @user.email) do |u|
         u.skip_invitation = true # Record created but invitation email will not be sent
@@ -43,6 +47,8 @@ class UsersController < ApplicationController
     @clinics =
       Clinic.all
       .map{|c| ["#{c.name} - #{c.address_line1}", c.id]}
+    @specs =
+        Specialization.all.map{|s| [s.id, s.title]}
   end
 
   def show
@@ -111,7 +117,8 @@ class UsersController < ApplicationController
         :email,
         :password,
         :password_confirmation,
-        :invitation_token
+        :invitation_token,
+        :specialization_id
       ).delete_if do |key, val|
         key == 'role' and val == "admin" and not current_user.admin?
       end
@@ -127,7 +134,8 @@ class UsersController < ApplicationController
         :email,
         :password,
         :password_confirmation,
-        :invitation_token
+        :invitation_token,
+        :specialization_id
       )
     end
   end
