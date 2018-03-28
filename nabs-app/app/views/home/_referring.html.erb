@@ -1,0 +1,45 @@
+<html>
+<head>
+  <style>
+    .ui_home_card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 300px;
+      margin: 20px;
+      text-align: center;
+      border: #8c0615;
+      display:inline-block;
+      padding: 10px;
+    }
+
+    .title {
+      color: gray;
+      font-size: 18px;
+    }
+
+    h1 {
+      text-decoration: none;
+      font-size: 22px;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="ui_home_card <%= current_page?(doctors_path) ? "active" : nil %>" href= <%= doctors_path %>>
+  <h1>Doctors</h1>
+  <p class="title">View/Search for doctors</p>
+</div>
+
+<div class="ui_home_card <%= current_page?(new_referral_path) ? "active" : nil %>" href= <%= new_referral_path %>>
+  <h1>Create</h1>
+  <p class="title">Create new referral</p>
+</div>
+
+<div class="ui_home_card <%= current_page?(referrals_path) ? "active" : nil %>" href= <%= referrals_path %>>
+  <h1>Pending</h1>
+  <p class="title">View pending referrals</p>
+</div>
+
+
+</body>
