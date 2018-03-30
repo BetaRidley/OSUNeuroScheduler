@@ -8,6 +8,10 @@
     <i class="ui icon home large"></i>Clinics
 </a>
 
+<a class="item <%= current_page?(specializations_path) ? "active" : nil %>" href= <%= specializations_path %>>
+  <i class="ui icon home large"></i>Specializations
+</a>
+
 <a class="item <%= current_page?(user_path(current_user)) ? "active" : nil %>" href= <%= user_path(current_user) %>>
     <i class="large user icon"></i>Account
 </a>
