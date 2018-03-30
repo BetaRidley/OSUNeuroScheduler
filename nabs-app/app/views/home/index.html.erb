@@ -1,28 +1,74 @@
+<html>
+<head>
+ <style>
+   .ui_center_card{
+     margin:auto;
+     margin-top: 50px;
+   }
+   .ui_home_card {
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+     max-width: 300px;
+     margin: 20px;
+     text-align: center;
+     display:inline-block;
+     padding: 10px;
+     border: medium solid #8c0615;
+     border-radius: 10px;
+   }
+
+   .title {
+     color: gray;
+     font-size: 18px;
+   }
+
+   a {
+     text-decoration: none;
+     font-size: 22px;
+     color: black;
+   }
+   </style>
+</head>
+
+<body>
 <h1 class="ui header">Welcome to NABS</h1>
 <h3 class="ui header">Neurosurgery Appointment Booking System</h3>
 
-<div class="ui center card">
-    <div class="image">
-    
-        <a class="header" href="https://wexnermedical.osu.edu/neurological-institute/departments-and-centers/departments/department-neurosurgery">
-            <img src=<%= asset_path 'OSU-WexMedCtr-4C-StackedK-CMYK.jpg' %>>
-        </a>
-    </div>
-    
-    <div class="content">
-        <a class="header" href="https://wexnermedical.osu.edu/neurological-institute/departments-and-centers/departments/department-neurosurgery">Neurosurgery Department</a>
-        <div class="meta">
-            <div class="phone">
-                <i class="phone icon"></i>614-293-8714
-            </div>
-    
-            <div class="description">
-                410 W. 10th Ave.
-                <br/>
-                Columbus, OH 43210-1240
-            </div>
-        </div>
-    </div>
+<div class="cards">
+  <% if current_user && current_user.role == 'admin' %>
+    <%= render 'home/admin' %>
+  <% elsif current_user && current_user.clinic.try(:referred?) %>
+    <%= render 'home/referred' %>
+  <% elsif current_user && current_user.clinic.try(:referrer?) %>
+    <%= render 'home/referring' %>
+  <% end %>
+
 </div>
 
+<div class="ui_home_card">
+  <a href=<%= user_path(current_user) %>>Account</a>
+  <p class="title">View/manage your account information</p>
+</div>
 
+<div class="ui_center_card">
+  <div class="image">
+    <a class="header" href="https://wexnermedical.osu.edu/neurological-institute/departments-and-centers/departments/department-neurosurgery">
+      <img src=<%= asset_path 'OSU-WexMedCtr-4C-StackedK-CMYK.jpg' %>>
+    </a>
+  </div>
+
+  <div class="content">
+    <a class="header" href="https://wexnermedical.osu.edu/neurological-institute/departments-and-centers/departments/department-neurosurgery">Neurosurgery Department</a>
+    <div class="meta">
+      <div class="phone">
+        <i class="phone icon"></i>614-293-8714
+      </div>
+
+      <div class="description">
+        410 W. 10th Ave.
+        <br/>
+        Columbus, OH 43210-1240
+      </div>
+    </div>
+  </div>
+</div>
+</body>
