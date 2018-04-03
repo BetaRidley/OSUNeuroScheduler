@@ -7,7 +7,7 @@
           <h2 class="ui  dividing header">Password</h2>
           <%= link_to 'Reset Password', edit_passwords_path, class: 'ui button red fluid big'%>
 
-        <% elsif current_user.admin? and not @user.nil?%>
+        <% elsif not @user.id.nil? and current_user.admin? %>
           <h2 class="ui  dividing header">Password</h2>
           <%= link_to 'Reset Password', user_reset_password_path(@user), class: 'ui button red fluid big'%>
         <% end %>
