@@ -3,7 +3,14 @@
 <div class="twelve wide column">
 
     <%= form_for @user, html: {class: 'ui huge form'} do |f|%>
+        <% if current_user == @user %>
+          <h2 class="ui  dividing header">Password</h2>
+          <%= link_to 'Reset Password', edit_passwords_path, class: 'ui button red fluid big'%>
 
+        <% elsif current_user.admin? and not @user.nil?%>
+          <h2 class="ui  dividing header">Password</h2>
+          <%= link_to 'Reset Password', user_reset_password_path(@user), class: 'ui button red fluid big'%>
+        <% end %>
         <h2 class="ui dividing header">Role</h2>
         <div class="field">
             <div class="ui search selection fluid dropdown">
@@ -67,6 +74,22 @@
             </div>
         </div>
         <% end %>
+        <% if current_user.admin? || current_user.role == 'doctor'%>
+          <h2 class="ui dividing header">Specialization</h2>
+          <div class="field">
+            <div class="ui search selection fluid dropdown">
+              <%= f.hidden_field :specialization_id %>
+              <i class="dropdown icon"></i>
+              <div class="default text"></div>
+              <div class="menu">
+                <% @specs.each do |s| %>
+                  <div class="item" data-value="<%=s[0]%>" data-text="<%=s[1]%>"><%=s[1]%></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
 
     <button class="ui red button big" type="submit">Save</button>
     <% end %>
