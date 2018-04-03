@@ -32,9 +32,18 @@
 <body>
 
 <div class="ui_home_card">
-  <a class ="card" href=<%= requests_path %>>Requests</a>
-  <p class="title">View/manage current requests</p>
+  <a class ="card" href= <%= doctors_path %>>Doctor</a>
+  <p class="title">View/Search for doctors</p>
 </div>
 
+<div class="ui_home_card">
+  <a class ="card" href= <%= new_referral_path %>>Create</a>
+  <p class="title">Create referral </p>
+</div>
+
+<div class="ui_home_card">
+  <a class ="card" href= <%= referrals_path %>>Pending</a>
+  <p class="title">View pending referrals </p>
+</div>
 
 </body>

@@ -12,7 +12,7 @@
      text-align: center;
      display:inline-block;
      padding: 10px;
-     border: medium solid #8c0615;
+     border: medium solid red;
      border-radius: 10px;
    }
 
@@ -21,7 +21,7 @@
      font-size: 18px;
    }
 
-   a {
+   .card {
      text-decoration: none;
      font-size: 22px;
      color: black;
@@ -36,6 +36,8 @@
 <div class="cards">
   <% if current_user && current_user.role == 'admin' %>
     <%= render 'home/admin' %>
+  <% elsif current_user && current_user.clinic.try(:referrer?) && current_user.role == 'staff' %>
+    <%= render 'home/staff' %>
   <% elsif current_user && current_user.clinic.try(:referred?) %>
     <%= render 'home/referred' %>
   <% elsif current_user && current_user.clinic.try(:referrer?) %>
@@ -45,7 +47,7 @@
 </div>
 
 <div class="ui_home_card">
-  <a href=<%= user_path(current_user) %>>Account</a>
+  <a class ="card" href=<%= user_path(current_user) %>>Account</a>
   <p class="title">View/manage your account information</p>
 </div>
 
