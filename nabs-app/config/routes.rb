@@ -10,7 +10,10 @@ Rails.application.routes.draw do
       root 'home#index', as: :authenticated_root
       resources :referrals, except: [:show]
       resources :clinics
+      resources :specializations
       resources :requests
+      post 'specializations/condition/create', controller: :specializations, action: :create_condition
+      delete 'specializations/condition/delete', controller: :specializations, action: :destroy_condition
       get 'search', as: :doctors, controller: :doctors, action: :search
       post 'select_doctor/:id', as: :select_doctor, controller: :doctors, action: :select_doctor
       get 'referrals/:id/assign_patient', as: :assign_patient, controller: :referrals, action: :assign_patient

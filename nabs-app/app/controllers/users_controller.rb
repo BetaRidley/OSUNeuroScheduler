@@ -11,26 +11,19 @@ class UsersController < ApplicationController
 
   def new
     if current_user.role == 'admin'
-      @roles =[['Admin', 'admin'],['Doctor','doctor'],['Staff','staff']]
+      @roles = [['Admin', 'admin'], ['Doctor', 'doctor'], ['Staff', 'staff']]
       @clinics =
-        Clinic.all
-        .map{|c| ["#{c.name} - #{c.address_line1}", c.id]}
-      @specs = Specialization.all.map{|s| [s.id, s.title]}
+          Clinic.all.map {|c| ["#{c.name} - #{c.address_line1}", c.id]}
     else
-      @roles = [['Doctor','doctor'],['Staff','staff']]
+      @roles = [['Doctor', 'doctor'], ['Staff', 'staff']]
       @clinics = [["#{current_user.clinic.name} - #{current_user.clinic.address_line1}", current_user.clinic_id]]
-      @specs = Specialization.all.map{|s| [s.id, s.title]}
     end
-  	@user = User.new
+    @specs = Specialization.all.map {|s| [s.id, s.title]}
+    @user = User.new
   end
 
   def create
     @user = User.new(user_params)
-    @clinics =
-      Clinic.all
-      .map{|c| ["#{c.name} - #{c.address_line1}", c.id]}
-    @specs =
-        Specialization.all.map{|s| [s.id, s.title]}
     if @user.save
       User.invite!(email: @user.email) do |u|
         u.skip_invitation = true # Record created but invitation email will not be sent
@@ -43,12 +36,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @roles = [['Admin', 'admin'],['Doctor','doctor'],['Staff','staff']]
+    @roles = [['Admin', 'admin'], ['Doctor', 'doctor'], ['Staff', 'staff']]
     @clinics =
-      Clinic.all
-      .map{|c| ["#{c.name} - #{c.address_line1}", c.id]}
+        Clinic.all
+            .map {|c| ["#{c.name} - #{c.address_line1}", c.id]}
     @specs =
-        Specialization.all.map{|s| [s.id, s.title]}
+        Specialization.all.map {|s| [s.id, s.title]}
   end
 
   def show
@@ -78,27 +71,27 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
     @user.confirmed_at = nil
     @user.password_changed = false
-  	if @user.save
-    	@user.send_confirmation_instructions
-    	redirect_to @user #Change this
-  	else
-        flash[:alert] = @user.errors.full_messages
-    	redirect_to users_path #Change this
-  	end
-    
+    if @user.save
+      @user.send_confirmation_instructions
+      redirect_to @user #Change this
+    else
+      flash[:alert] = @user.errors.full_messages
+      redirect_to users_path #Change this
+    end
+
   end
 
   private
   def check_current_user
-   unless current_user.admin? or current_user == @user
-     redirect_to unauthenticated_root_url, alert: "You do not have permission to view that page"
-   end
+    unless current_user.admin? or current_user == @user
+      redirect_to unauthenticated_root_url, alert: "You do not have permission to view that page"
+    end
   end
 
   def set_user
     @user = User.find(params[:id])
   end
-  
+
   def same_clinic
     not (current_user.clinic.nil? or @user.clinic.nil?) and current_user.clinic == @user.clinic
   end
@@ -106,37 +99,37 @@ class UsersController < ApplicationController
   def user_params
     if current_user.admin? || current_user.doctor?
       params.require(:user).
-      permit(
-        :role,
-        :first_name,
-        :last_name,
-        :middle_name,
-        :clinic_id,
-        :fax_number,
-        :phone_number,
-        :email,
-        :password,
-        :password_confirmation,
-        :invitation_token,
-        :specialization_id
-      ).delete_if do |key, val|
+          permit(
+              :role,
+              :first_name,
+              :last_name,
+              :middle_name,
+              :clinic_id,
+              :fax_number,
+              :phone_number,
+              :email,
+              :password,
+              :password_confirmation,
+              :invitation_token,
+              :specialization_id
+          ).delete_if do |key, val|
         key == 'role' and val == "admin" and not current_user.admin?
       end
     elsif @user == current_user
       params.require(:user).
-      permit(
-        :first_name,
-        :last_name,
-        :middle_name,
-        :clinic_id,
-        :fax_number,
-        :phone_number,
-        :email,
-        :password,
-        :password_confirmation,
-        :invitation_token,
-        :specialization_id
-      )
+          permit(
+              :first_name,
+              :last_name,
+              :middle_name,
+              :clinic_id,
+              :fax_number,
+              :phone_number,
+              :email,
+              :password,
+              :password_confirmation,
+              :invitation_token,
+              :specialization_id
+          )
     end
   end
 end
