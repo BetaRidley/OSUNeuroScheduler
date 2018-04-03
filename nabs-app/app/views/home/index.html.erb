@@ -12,7 +12,7 @@
      text-align: center;
      display:inline-block;
      padding: 10px;
-     border: medium solid #8c0615;
+     border: medium solid red;
      border-radius: 10px;
    }
 
@@ -21,7 +21,7 @@
      font-size: 18px;
    }
 
-   a {
+   .card {
      text-decoration: none;
      font-size: 22px;
      color: black;
@@ -45,7 +45,7 @@
 </div>
 
 <div class="ui_home_card">
-  <a href=<%= user_path(current_user) %>>Account</a>
+  <a class ="card" href=<%= user_path(current_user) %>>Account</a>
   <p class="title">View/manage your account information</p>
 </div>
 

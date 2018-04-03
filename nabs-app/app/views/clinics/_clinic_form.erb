@@ -1,7 +1,14 @@
-<h2 class="ui  dividing header">Create Clinic</h2>
+<html>
+<head>
+
+</head>
+
+<body>
+
+<h2 class="ui dividing header">Create Clinic</h2>
 <%= form_for(@clinic, controller: :clinics, html: { class: 'ui huge form' }) do |f| %>
     
-    <h2 class="ui dividing header">Role</h2>
+    <h2>Role</h2>
     <div class="field">
         <div class="ui search selection fluid dropdown">
             <%= f.hidden_field :role %>
@@ -78,6 +85,9 @@
             <%= f.text_field :zip_code %>
         </div>
     </div>
-    
-    <%= f.submit 'Save', class: "ui button big" %>
+
+    <%= f.submit 'Save', class: "ui red button big" %>
 <% end %>
+
+</body>
+</html>
