@@ -10,7 +10,7 @@ class DoctorsController < ApplicationController
     @doctor = User.find(doctor_params[:id])
     @referral = Referral.new(referred_doctor_id: @doctor.id, created_by_id: current_user.id)
     if @referral.save
-      flash[:message] = 'Created Referral for Physician '+@doctor.full_name
+      flash[:message] = "Created Referral for Physician #{@doctor.full_name}"
       redirect_to edit_referral_path(id: @referral.id)
     else
       flash[:alert] = referral.errors.full_messages
