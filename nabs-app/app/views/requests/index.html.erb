@@ -19,8 +19,8 @@
         <% @requests.each do |r| %>
         <tr>
             <td><%= @statuses[r.status] %></td>
-            <td><%= r.specialization.title %></td>
-            <td><%= r.referring_doctor.full_name %></td>
+            <td><%= r.specialization.try(:title) %></td>
+            <td><%= r.referring_doctor.try(:full_name) %></td>
             <td><%= r.referred_doctor.try(:full_name) %></td>
             <td><%= r.created_by.try(:full_name) %></td>
             <td><%= r.created_at %></td>
