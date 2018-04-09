@@ -1,10 +1,7 @@
 <html>
 <head>
   <style>
-    .ui_center_card{
-      margin:auto;
-      margin-top: 50px;
-    }
+
     .ui_home_card {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       max-width: 300px;
@@ -12,7 +9,7 @@
       text-align: center;
       display:inline-block;
       padding: 10px;
-      border: medium solid #8c0615;
+      border: medium solid red;
       border-radius: 10px;
     }
 
@@ -21,7 +18,7 @@
       font-size: 18px;
     }
 
-    a {
+    .card {
       text-decoration: none;
       font-size: 22px;
       color: black;
@@ -32,17 +29,17 @@
 <body>
 
 <div class="ui_home_card">
-  <a href= <%= users_path %>>Users</a>
+  <a class ="card" href= <%= users_path %>>User</a>
   <p class="title">View/manage user account information</p>
 </div>
 
 <div class="ui_home_card">
-  <a href= <%= clinics_path %>>Clinic</a>
+  <a class ="card" href= <%= clinics_path %>>Clinic</a>
   <p class="title">View/manage clinic account information</p>
 </div>
 
 <div class="ui_home_card">
-  <a href= <%= specializations_path %>>Specializations</a>
+  <a class="card" href= <%= specializations_path %>>Specializations</a>
   <p class="title">View/manage medical specialization information</p>
 </div>
 

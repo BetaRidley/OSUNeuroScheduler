@@ -12,7 +12,7 @@
       text-align: center;
       display:inline-block;
       padding: 10px;
-      border: medium solid #8c0615;
+      border: medium solid red;
       border-radius: 10px;
     }
 
@@ -21,7 +21,7 @@
       font-size: 18px;
     }
 
-    a {
+    .card {
       text-decoration: none;
       font-size: 22px;
       color: black;
@@ -32,19 +32,10 @@
 <body>
 
 <div class="ui_home_card" >
-  <a href=<%= doctors_path %>>Doctors</a>
+  <a class ="card" href=<%= doctors_path %>>Doctors</a>
   <p class="title">View/Search for doctors</p>
 </div>
 
-<div class="ui_home_card">
-  <a href=<%= new_referral_path %>>Create</a>
-  <p class="title">Create new referral</p>
-</div>
-
-<div class="ui_home_card">
-  <a href =<%= referrals_path %>>Pending</a>
-  <p class="title">View pending referrals</p>
-</div>
 
 
 </body>
