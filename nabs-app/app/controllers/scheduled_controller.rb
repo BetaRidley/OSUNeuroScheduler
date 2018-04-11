@@ -6,10 +6,6 @@ class ScheduledController < ApplicationController
     @statuses = ['new', 'edited', 'sent', 'accepted','denied']
   end
 
-  def show
-    @appt = @appts.find(params[:id])
-  end
-
   #def modify
   #  @request = @requests.find(params[:id])
   # TODO: get modify action set up for referrals on hospital end, so they can change date & send email to end pt for discussion
