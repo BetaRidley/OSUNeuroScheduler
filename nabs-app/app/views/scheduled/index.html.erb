@@ -3,13 +3,18 @@
 <table class="table ui striped tablet stackable celled">
     <thead>
         <tr>
-            <th>Status</th>
-            <th>Specialty/Diagnosis</th>
-            <th>Referring Doctor</th>
-            <th>Referred Doctor</th>
-            <th>Creator</th>
-            <th>Created At</th>
-            <th>Updated At</th>
+          <th>Specialty/Diagnosis</th>
+          <th>Referring Doctor</th>
+          <th>Referred Doctor</th>
+          <th>Creator</th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+          <th>Saturday</th>
+          <th>Sunday</th>
+          
         </tr>
     </thead>
 
@@ -17,13 +22,59 @@
         <% @appts.each do |a| %>
           <% if a.status == 3 %>
             <tr>
-                <td><%= @statuses[a.status] %></td>
-                <td><%= a.specialization.try(:title) %></td>
-                <td><%= a.referring_doctor.try(:full_name) %></td>
-                <td><%= a.referred_doctor.try(:full_name) %></td>
-                <td><%= a.created_by.try(:full_name) %></td>
-                <td><%= a.created_at %></td>
-                <td><%= distance_of_time_in_words_to_now(a.updated_at) %></td>
+              <td><%= a.specialization.try(:title) %></td>
+              <td><%= a.referring_doctor.try(:full_name) %></td>
+              <td><%= a.referred_doctor.try(:full_name) %></td>
+              <td><%= a.created_by.try(:full_name) %></td>
+              <td>
+                <% if a.monday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+              <td>
+                <% if a.tuesday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+              <td>
+                <% if a.wednesday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+              <td>
+                <% if a.thursday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+              <td>
+                <% if a.friday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+              <td>
+                <% if a.saturday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+              <td>
+                <% if a.sunday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
             </tr>
           <% end %>
         <% end %>
