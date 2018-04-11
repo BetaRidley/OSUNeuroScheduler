@@ -1,57 +1,69 @@
 <%= form_tag(doctors_path, method: 'get', class: "ui huge form") do %>
-    <div class="inline fields">
-        <div class="field">
-            <%= search_field_tag 'name', params[:name], placeholder: 'Search by Name' %>
-        </div>
-        
-        <div class="ui fluid search selection dropdown">
-            <%= hidden_field_tag :clinic_id, @clinic.try(:id) %>
-            <i class='dropdown icon'></i>
-            <div class='default text'><%= @clinic.try(:name) || 'Clinic' %></div>
-            
-            <div class='menu'>
-                <% @clinics.each do |c| %>
-                <div class='item' data-value=<%= c.id %>><%= c.name %></div>
-                <% end %>
-            </div>
-        </div>
-        
-        <div class="ui fluid search selection dropdown">
-            <%= hidden_field_tag :specialization_id, @specialization.try(:id) %>
-            <i class='dropdown icon'></i>
-            <div class='default text'><%= @specialization.try(:title) || 'Specialization' %></div>
-            
-            <div class='menu'>
-                <% @specializations.each do |s| %>
-                <div class='item' data-value=<%= s.id %>><%= s.title %></div>
-                <% end %>
-            </div>
-        </div>
-        
-        <div class="field">
-            <%= submit_tag 'Search', name: nil, class: 'ui button' %>
-        </div>
+  <div class="inline fields">
+    <div class="field">
+      <%= search_field_tag 'name', params[:name], placeholder: 'Search by Name' %>
     </div>
+
+    <div class="ui fluid search selection dropdown">
+      <%= hidden_field_tag :clinic_id, @clinic.try(:id) %>
+      <i class='dropdown icon'></i>
+      <div class='default text'><%= @clinic.try(:name) || 'Clinic' %></div>
+
+      <div class='menu'>
+        <% @clinics.each do |c| %>
+          <div class='item' data-value=<%= c.id %>><%= c.name %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="ui fluid search selection dropdown">
+      <%= hidden_field_tag :specialization_id, @specialization.try(:id) %>
+      <i class='dropdown icon'></i>
+      <div class='default text'><%= @specialization.try(:title) || 'Specialization' %></div>
+
+      <div class='menu'>
+        <% @specializations.each do |s| %>
+          <div class='item' data-value=<%= s.id %>><%= s.title %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="ui fluid search selection dropdown">
+      <%= hidden_field_tag :condition_id, @condition.try(:id) %>
+      <i class='dropdown icon'></i>
+      <div class='default text'><%= @condition.try(:name) || 'Condition' %></div>
+
+      <div class='menu'>
+        <% @conditions.each do |c| %>
+          <div class='item' data-value=<%= c.id %>><%= c.name %></div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= submit_tag 'Search', name: nil, class: 'ui button' %>
+    </div>
+  </div>
 <% end %>
 
 <table class="table ui striped tablet stackable celled">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Location</th>
-            <th>Specialties</th>
-            <th></th>
-        </tr>
-    </thead>
-    
-    <tbody>
-        <% @doctors.each do |d| %>
-        <tr>
-            <td><%= d.full_name %></td>
-            <td><%= d.clinic.name %></td>
-            <td><%= d.specialization.try(:title) %></td>
-            <td><%= button_to 'Select', select_doctor_path(id: d.id), class: 'ui button blue' %></td>
-        </tr>
-        <% end %>
-    </tbody>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Specialties</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @doctors.each do |d| %>
+    <tr>
+      <td><%= d.full_name %></td>
+      <td><%= d.clinic.name %></td>
+      <td><%= d.specialization.try(:title) %></td>
+      <td><%= button_to 'Select', select_doctor_path(id: d.id), class: 'ui button blue' %></td>
+    </tr>
+  <% end %>
+  </tbody>
 </table>
