@@ -17,7 +17,6 @@
 
     <tbody>
     <% @requests.each do |r| %>
-      <% if r.status != 3 %>
         <tr>
           <td><%= @statuses[r.status] %></td>
           <td><%= r.specialization.try(:title) %></td>
@@ -26,8 +25,9 @@
           <td><%= r.created_by.try(:full_name) %></td>
           <td><%= r.created_at %></td>
           <td><%= distance_of_time_in_words_to_now(r.updated_at) %></td>
+          <td><%= button_to 'Accept', accept_requests_path(id: r.id), disabled: r.status == 3, method: :patch, class: 'button ui yellow' %></td>
+          <td><%= button_to "Deny", deny_requests_path(id: r.id), disabled: r.status == 4, method: :patch, class: 'ui button red' %></td>
         </tr>
-      <% end %>
     <% end %>
 </tbody>
 </table>
