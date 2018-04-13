@@ -45,6 +45,7 @@ class User < ApplicationRecord
   belongs_to :clinic, class_name: "Clinic", foreign_key: :clinic_id
   belongs_to :specialization, class_name: "Specialization", optional: true 
   has_many :requests, foreign_key: :referred_doctor, class_name: 'Referral'
+  has_many :scheduled, foreign_key: :referred_doctor, class_name: 'Referral'
   has_many :referrals, foreign_key: :referring_doctor, class_name: 'Referral'
   has_many :created_referrals, foreign_key: :created_by , class_name: 'Referral'
  # validates_formatting_of :phone_number, using: :us_phone, allow_blank: true

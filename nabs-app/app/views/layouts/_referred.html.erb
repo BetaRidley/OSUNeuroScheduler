@@ -2,6 +2,10 @@
     <i class="calendar outline icon"></i>Requests
 </a>
 
+<a class="item <%= current_page?(scheduled_path) ? "active" : nil %>" href= <%= scheduled_path %>>
+  <i class="calendar check icon"></i>Scheduled
+</a>
+
 <a class="item <%= current_page?(user_path(current_user)) ? "active" : nil %>" href= <%= user_path(current_user) %>>
     <i class="large user icon"></i>Account
 </a>
