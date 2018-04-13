@@ -111,7 +111,8 @@ class UsersController < ApplicationController
               :password,
               :password_confirmation,
               :invitation_token,
-              :specialization_id
+              :specialization_id,
+              :auto_approve
           ).delete_if do |key, val|
         key == 'role' and val == "admin" and not current_user.admin?
       end

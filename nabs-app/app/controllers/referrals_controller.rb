@@ -1,5 +1,29 @@
 class ReferralsController < ApplicationController
   before_action :check_referring_clinic_auth
+
+  def send_referral
+    @referral = @referrals.find(params[:id])
+    if @referral
+      @patient = @referral.patient
+      if @patient.update_attributes(patient_params)
+        if @referral.update_attributes(status: @referral.referred_doctor.auto_approve? ? 3 : 2)
+          flash[:notice] =  "Referral Sent"
+          PatientMailer.send_accept_message(@referral).deliver_now! if @referral.status == 3
+          redirect_to home_index_path
+        else
+          flash[:alert] =  @referral.errors.full_messages
+          redirect_to assign_patient_path(patient_params)
+        end
+      else
+        flash[:alert] =  @patient.errors.full_messages
+        redirect_to assign_patient_path(patient_params)
+      end
+    else
+      flash[:alert] =  "Referral does not belong to your office"
+      redirect_to referrals_path
+    end
+  end
+
   before_action :clinic_check
 
   def index
@@ -86,28 +110,6 @@ class ReferralsController < ApplicationController
       redirect_to referrals_path
     else
       @sexes = [['Female','F'],['Male','M'],['Unknown','U']]
-    end
-  end
-
-  def send_referral
-    @referral = @referrals.find(params[:id])
-    if @referral
-      @patient = @referral.patient
-      if @patient.update_attributes(patient_params)
-        if @referral.update_attributes(status: 2)
-          flash[:notice] =  "Referral Sent"
-          redirect_to home_index_path
-        else
-          flash[:alert] =  @referral.errors.full_messages
-          redirect_to assign_patient_path(patient_params)
-        end
-      else
-        flash[:alert] =  @patient.errors.full_messages
-        redirect_to assign_patient_path(patient_params)
-      end
-    else
-      flash[:alert] =  "Referral does not belong to your office"
-      redirect_to referrals_path
     end
   end
 
