@@ -12,6 +12,7 @@
             <th>Name</th>
             <th>Clinic</th>
             <th>Role</th>
+            <th>Specialization</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Fax</th>
@@ -27,6 +28,7 @@
             <td><%= user.full_name %></td>
             <td><%= user.clinic.try(:name)%></td>
             <td><%= user.role.capitalize %></td>
+            <td><%= user.specialization.try(:title) if user.doctor? %></td>
             <td><%= user.email %></td>
             <td><%= user.phone_number %></td>
             <td><%= user.fax_number %></td>
