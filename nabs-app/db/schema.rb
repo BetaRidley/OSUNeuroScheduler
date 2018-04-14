@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319232709) do
+ActiveRecord::Schema.define(version: 20180412195906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 20180319232709) do
     t.string "last_name"
     t.bigint "specialization_id"
     t.bigint "clinic_id"
+    t.boolean "auto_approve", default: false
     t.index ["clinic_id"], name: "index_users_on_clinic_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
