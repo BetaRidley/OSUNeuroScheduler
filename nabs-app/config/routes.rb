@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :clinics
       resources :specializations
       resources :requests
+      get 'scheduled' => 'scheduled#index'
       post 'specializations/condition/create', controller: :specializations, action: :create_condition
       delete 'specializations/condition/delete', controller: :specializations, action: :destroy_condition
       get 'search', as: :doctors, controller: :doctors, action: :search

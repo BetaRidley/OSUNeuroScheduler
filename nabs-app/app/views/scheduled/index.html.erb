@@ -1,0 +1,82 @@
+<h2 class="ui dividing header">Scheduled</h2>
+
+<table class="table ui striped tablet stackable celled">
+    <thead>
+        <tr>
+          <th>Specialty/Diagnosis</th>
+          <th>Referring Doctor</th>
+          <th>Referred Doctor</th>
+          <th>Creator</th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+          <th>Saturday</th>
+          <th>Sunday</th>
+          
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @appts.each do |a| %>
+          <% if a.status == 3 %>
+            <tr>
+              <td><%= a.specialization.try(:title) %></td>
+              <td><%= a.referring_doctor.try(:full_name) %></td>
+              <td><%= a.referred_doctor.try(:full_name) %></td>
+              <td><%= a.created_by.try(:full_name) %></td>
+              <td>
+                <% if a.monday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+              <td>
+                <% if a.tuesday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+              <td>
+                <% if a.wednesday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+              <td>
+                <% if a.thursday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+              <td>
+                <% if a.friday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+              <td>
+                <% if a.saturday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+              <td>
+                <% if a.sunday %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+</tbody>
+</table>
