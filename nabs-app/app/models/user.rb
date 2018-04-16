@@ -36,6 +36,7 @@
 #  last_name              :string
 #  specialization_id      :integer
 #  clinic_id              :integer
+#  auto_approve           :boolean          default(FALSE)
 #
 
 class User < ApplicationRecord
