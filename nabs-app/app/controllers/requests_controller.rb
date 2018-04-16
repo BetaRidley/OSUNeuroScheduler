@@ -28,7 +28,7 @@ class RequestsController < ApplicationController
   def deny
     @request = @requests.find(params[:id])
     if @request.update_attribute(:status, 4)
-      PatientMailer.send_deny_message(@request).deliver_now!
+      UserMailer.send_deny_message(@request).deliver_now!
     else
       flash[:alert] = r.errors.full_messages
     end

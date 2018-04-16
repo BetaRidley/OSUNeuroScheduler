@@ -1,7 +1,8 @@
-<html>
-<head>
-  <style>
-
+<style>
+    .ui_center_card{
+      margin:auto;
+      margin-top: 50px;
+    }
     .ui_home_card {
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       max-width: 300px;
@@ -23,10 +24,8 @@
       font-size: 22px;
       color: black;
     }
-  </style>
-</head>
+</style>
 
-<body>
 
 <div class="ui_home_card">
   <a class ="card" href= <%= users_path %>>User</a>
@@ -42,5 +41,3 @@
   <a class="card" href= <%= specializations_path %>>Specializations</a>
   <p class="title">View/manage medical specialization information</p>
 </div>
-
-</body>
