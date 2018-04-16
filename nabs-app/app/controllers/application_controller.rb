@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
   end
   
   def check_referring_clinic_auth
-    unless (current_user.try(:admin?) || current_user.try(:staff?) ) && current_user.try(:clinic).try(:referrer?)
+    unless current_user.try(:clinic).try(:referrer?)
       redirect_to home_index_path, alert: 'You are not authorized to view that page'
     end 
   end

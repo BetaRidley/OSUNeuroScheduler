@@ -29,7 +29,7 @@
             <%= form_for(@condition, url: specializations_condition_create_path, html: { class: 'ui small form' }) do |f| %>
               <%= f.text_field :name, placeholder: "New Condition Name" %>
               <%= f.hidden_field(:specialization_id, {value: s.id}) %>
-              <%= f.submit 'Save', class: "ui button small" %>
+              <%= f.submit 'Save', class: "ui button small blue" %>
             <% end %>
           </tbody>
         </table>
@@ -40,7 +40,7 @@
   <div>
     <%= form_for(@specialization, controller: :specializations, html: { class: 'ui small form' }) do |f| %>
       <%= f.text_field :title, placeholder: "New Specialization Title" %>
-      <%= f.submit 'Save', class: "ui button small" %>
+      <%= f.submit 'Save', class: "ui button small blue" %>
     <% end %>
   </div>
   </tbody>

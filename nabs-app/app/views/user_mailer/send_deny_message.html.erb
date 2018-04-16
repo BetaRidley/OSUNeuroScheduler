@@ -1,0 +1,4 @@
+<p>Hello <%= @user.first_name + ' ' + @user.middle_name + ' ' + @user.last_name %>!</p>
+
+<% @doctor = User.find(@referral.referred_doctor_id) %>
+<p>The appointment you tried to schedule with Dr. <%= @doctor.last_name %> has been denied.</p>
