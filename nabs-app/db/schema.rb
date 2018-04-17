@@ -148,7 +148,6 @@ ActiveRecord::Schema.define(version: 20180416224747) do
   add_foreign_key "conditions", "specializations"
   add_foreign_key "referrals", "patients"
   add_foreign_key "referrals", "specializations"
-  add_foreign_key "referrals", "specializations", column: "referred_doctor_id"
   add_foreign_key "referrals", "users", column: "created_by_id"
   add_foreign_key "referrals", "users", column: "referring_doctor_id"
   add_foreign_key "specializes", "specializations", column: "specializations_id"
