@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180412195906) do
+ActiveRecord::Schema.define(version: 20180416224747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20180412195906) do
     t.string "state", limit: 2
     t.string "zip_code"
     t.string "email"
-    t.integer "phone_number"
+    t.string "phone_number"
   end
 
   create_table "referrals", force: :cascade do |t|
@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(version: 20180412195906) do
   add_foreign_key "conditions", "specializations"
   add_foreign_key "referrals", "patients"
   add_foreign_key "referrals", "specializations"
+  add_foreign_key "referrals", "specializations", column: "referred_doctor_id"
   add_foreign_key "referrals", "users", column: "created_by_id"
   add_foreign_key "referrals", "users", column: "referring_doctor_id"
   add_foreign_key "specializes", "specializations", column: "specializations_id"
