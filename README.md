@@ -102,7 +102,7 @@ Run Locally on a Unix-based machine (or in a VM):
 ## Reference Materials
 
 ### Screens
-![Before Sign In](/screens/before_sign_in.png?raw=true "Before Signing In")
+![Before Sign In](/[AU17]screens/before_sign_in.png?raw=true "Before Signing In")
 ![After Sign In](/screens/after_sign_in.png?raw=true "After Signing In")
 ![Landing Page](/screens/landing_page.png?raw=true "Plain Landing Page")
 
