@@ -103,20 +103,20 @@ Run Locally on a Unix-based machine (or in a VM):
 
 ### Screens
 ![Before Sign In](/[AU17]screens/before_sign_in.png?raw=true "Before Signing In")
-![After Sign In](/screens/after_sign_in.png?raw=true "After Signing In")
-![Landing Page](/screens/landing_page.png?raw=true "Plain Landing Page")
+![After Sign In](/[AU17]screens/after_sign_in.png?raw=true "After Signing In")
+![Landing Page](/[AU17]screens/landing_page.png?raw=true "Plain Landing Page")
 
-![Logout](/screens/logout.png?raw=true "Logout")
+![Logout](/[AU17]screens/logout.png?raw=true "Logout")
 
-![Account Page](/screens/account_page.png?raw=true "Account Page")
-![Create Referral](/screens/create_referral.png?raw=true "Create Referral")
-![Pending Referrals](/screens/pending_referrals.png?raw=true "Pending Referrals")
-![Patient Information](/screens/send_referral.png?raw=true "Patient Information")
+![Account Page](/[AU17]screens/account_page.png?raw=true "Account Page")
+![Create Referral](/[AU17]screens/create_referral.png?raw=true "Create Referral")
+![Pending Referrals](/[AU17]screens/pending_referrals.png?raw=true "Pending Referrals")
+![Patient Information](/[AU17]screens/send_referral.png?raw=true "Patient Information")
 
-![Sent Requests](/screens/sent_requests.png?raw=true "Sent Requests")
+![Sent Requests](/[AU17]screens/sent_requests.png?raw=true "Sent Requests")
 
-![Admin User List](/screens/admin_user_list.png?raw=true "Admin User Listing")
-![Admin Clinic List](/screens/admin_clinic_list.png?raw=true "Admin Clinic Listing")
+![Admin User List](/[AU17]screens/admin_user_list.png?raw=true "Admin User Listing")
+![Admin Clinic List](/[AU17]screens/admin_clinic_list.png?raw=true "Admin Clinic Listing")
 
-![New Clinic](/screens/new_clinic.png?raw=true "New Clinic")
-![New User](/screens/new_user.png?raw=true "New User")
+![New Clinic](/[AU17]screens/new_clinic.png?raw=true "New Clinic")
+![New User](/[AU17]screens/new_user.png?raw=true "New User")
