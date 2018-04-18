@@ -53,28 +53,33 @@ class SpecializationsController < ApplicationController
 
   # New version of destroy
   def destroy
-    @specialization = Specialization.find(params[:id])
-    flash[:notice] = 'Deleted Specialization'
-    @result = @specialization.destroy
-
-    # if destroy doesn't work, throw the error message
-    flash[:alert] = @specialization.errors.full_messages unless @result
-
-    # always redirect back to specializations page
-    redirect_to index
+    begin
+      @specialization = Specialization.try(:find, params[:id])
+      flash[:notice] = 'Deleted Specialization'
+      @result = @specialization.destroy
+      # if destroy doesn't work, throw the error message
+      flash[:alert] = @specialization.errors.full_messages unless @result
+    rescue => e
+      flash[:alert] = "Unknown Error trying to delete specialization #{params[:id]}, Errors: #{e}"
+    ensure
+      # always redirect back to specializations page
+      redirect_to '/specializations/'
+    end
   end
 
   def destroy_condition
-    puts "Params: #{params}"
-    @condition = Condition.find(params[:id])
-    flash[:notice] = 'Deleted Condition'
-    @result = @condition.destroy
-
-    # if destroy doesn't work, throw the error message
-    flash[:alert] = @condition.errors.full_messages unless @result
-
-    # always redirect back to specializations page
-    redirect_to specializations_path
+    begin
+      @condition = Condition.find(params[:id])
+      flash[:notice] = 'Deleted Condition'
+      @result = @condition.destroy
+      # if destroy doesn't work, throw the error message
+      flash[:alert] = @condition.errors.full_messages unless @result
+    rescue => e
+      flash[:alert] = "Unknown Error trying to delete condition #{params[:id]}, Errors: #{e}"
+    ensure
+      # always redirect back to specializations page
+      redirect_to '/specializations/'
+    end
   end
 
   private
@@ -89,3 +94,4 @@ class SpecializationsController < ApplicationController
           .permit(:name, :specialization_id)
   end
 end
+
